@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { Button, styled } from "@mui/material";
 
 function App() {
+  const BlueButton = styled(Button)({
+    backgroundColor: "royalblue",
+    color: "ThreeDHighlight",
+    margin: 5,
+    "&:hover": {
+      backgroundColor: "darkcyan",
+    },
+  });
+  const ThemeButton = styled(Button)(({ theme }) => ({
+    backgroundColor: theme.palette.otherColor.main,
+    color: "ThreeDHighlight",
+    margin: 5,
+    "&:hover": {
+      backgroundColor: "darkcyan",
+    },
+  }));
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Button variant="text">Text</Button>
+      <Button
+        variant="contained"
+        sx={{
+          backgroundColor: "royalblue",
+          color: "ThreeDHighlight",
+          margin: 5,
+          "&:hover": {
+            backgroundColor: "darkcyan",
+          },
+        }}
+      >
+        Contained
+      </Button>
+      <BlueButton>Another button</BlueButton>
+      <Button variant="contained" color="primary">
+        Outlined
+      </Button>
+      <ThemeButton>Theme Button</ThemeButton>
     </div>
   );
 }
